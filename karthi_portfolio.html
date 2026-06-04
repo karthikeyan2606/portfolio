@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Karthikeyan | Portfolio — ML & IoT Engineer</title>
+  <!-- Google Fonts + Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F8FAFE;
+      color: #1E293B;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* Modern color variables */
+    :root {
+      --primary-dark: #0B2F3F;
+      --primary: #1A6D8C;
+      --primary-light: #2C9BBF;
+      --accent: #F59E0B;
+      --accent-dark: #D97706;
+      --rose: #E11D48;
+      --gray-light: #F1F5F9;
+      --gray-card: #FFFFFF;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+      --shadow-glow: 0 0 15px rgba(42, 157, 143, 0.2);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* glass navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(26, 109, 140, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #0B2F3F 0%, #1A6D8C 60%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1E293B;
+      transition: 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 2.5px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* buttons */
+    .btn-primary {
+      background: linear-gradient(95deg, var(--primary-dark), var(--primary));
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(26, 109, 140, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 26px rgba(26, 109, 140, 0.35);
+      background: linear-gradient(95deg, var(--primary), var(--primary-light));
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-outline-light:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(120deg, #0B2F3F, #1A6D8C);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      border-radius: 4px;
+    }
+
+    /* Hero section enhanced */
+    .hero {
+      padding: 80px 0 60px;
+      background: radial-gradient(ellipse at 80% 20%, rgba(245, 158, 11, 0.03), rgba(26, 109, 140, 0.02)), #F8FAFE;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(42, 157, 143, 0.08), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .hero-left {
+      flex: 1.4;
+    }
+
+    .hero-badge {
+      background: rgba(245, 158, 11, 0.12);
+      padding: 6px 16px;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-left h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: #0B2F3F;
+      margin-bottom: 20px;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #1A6D8C, #F59E0B);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #334155;
+      max-width: 550px;
+      margin: 24px 0 32px;
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .contact-chip {
+      background: white;
+      border-radius: 60px;
+      padding: 8px 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #E2E8F0;
+      text-decoration: none;
+      color: #1E293B;
+      transition: all 0.25s;
+    }
+
+    .contact-chip i {
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    .contact-chip:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px -12px rgba(0,0,0,0.15);
+    }
+
+    .hero-right {
+      flex: 0.9;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 48px;
+      padding: 32px;
+      box-shadow: var(--shadow-md), 0 0 0 1px rgba(26,109,140,0.1);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .stat-item {
+      margin-bottom: 28px;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* cards modern */
+    .card-modern {
+      background: white;
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #EFF3F8;
+      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .card-modern:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.12);
+      border-color: rgba(26,109,140,0.3);
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    /* skills pills - vibrant */
+    .skillset {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .skill-pill {
+      background: linear-gradient(115deg, #EEF2FF, #EFF6F9);
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+      transition: 0.2s;
+      border: 1px solid rgba(26,109,140,0.2);
+    }
+
+    .skill-pill:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .skill-category h4 {
+      font-size: 1.25rem;
+      margin: 28px 0 12px 0;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #0F3B4F;
+    }
+
+    /* project cards with gradient border */
+    .project-card-pro {
+      background: white;
+      border-radius: 32px;
+      overflow: hidden;
+      transition: 0.3s;
+      height: 100%;
+      border: 1px solid #EFF3F8;
+      position: relative;
+    }
+
+    .project-card-pro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 32px;
+      padding: 2px;
+      background: linear-gradient(135deg, transparent, var(--accent), var(--primary));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: 0.4s;
+      pointer-events: none;
+    }
+
+    .project-card-pro:hover::before {
+      opacity: 1;
+    }
+
+    .project-card-pro:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-content-pro {
+      padding: 32px;
+    }
+
+    .project-title-pro {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #0B2F3F, #1A6D8C);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tech-stack-pro {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .tech-tag {
+      background: #F1F5F9;
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .feature-list-pro {
+      list-style: none;
+      margin: 18px 0;
+    }
+    .feature-list-pro li {
+      margin-bottom: 12px;
+      display: flex;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+    .feature-list-pro i {
+      color: var(--accent);
+      margin-top: 3px;
+    }
+
+    /* award list enhanced */
+    .award-modern {
+      background: linear-gradient(105deg, #FFFFFF, #FEF9F0);
+      border-radius: 24px;
+      padding: 20px;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: 0.25s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .award-modern:hover {
+      transform: translateX(6px);
+      background: white;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* footer */
+    .footer-pro {
+      background: linear-gradient(105deg, #0B2F3F, #0A2533);
+      color: #CBD5E6;
+      padding: 60px 0 40px;
+      text-align: center;
+      border-top: 1px solid rgba(245,158,11,0.2);
+    }
+
+    /* decorative elements */
+    .glow-text {
+      text-shadow: 0 0 6px rgba(245,158,11,0.3);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
+    }
+
+    .hover-lift {
+      transition: transform 0.2s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 900px) {
+      .hero-left h1 {
+        font-size: 2.6rem;
+      }
+      .nav-container {
+        flex-direction: column;
+        gap: 16px;
+      }
+      section {
+        padding: 70px 0;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">KARTHIKEYAN</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <i class="fas fa-microchip"></i> BCA Graduate | ML & IoT Developer
+        </div>
+        <h1>
+          Building <span class="hero-highlight">intelligent</span><br>
+          systems that save lives & drive impact
+        </h1>
+        <p class="hero-desc">
+          Dedicated professional with expertise in Machine Learning, IoT, and full‑stack development. 
+          Passionate about solving real‑world problems through data and connected devices.
+        </p>
+        <div class="contact-row">
+          <a href="mailto:studentkarthi2606@gmail.com" class="contact-chip"><i class="fas fa-envelope"></i> studentkarthi2606@gmail.com</a>
+          <a href="tel:+919345218984" class="contact-chip"><i class="fas fa-phone-alt"></i> +91 93452 18984</a>
+          <a href="https://linkedin.com/in/karthikeyan" target="_blank" class="contact-chip"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="#projects" class="btn-primary"><i class="fas fa-arrow-down"></i> View Projects</a>
+          <a href="#contact" class="btn-outline-light" style="margin-left: 16px;">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="stat-item">
+          <div class="stat-number">7.5 CGPA</div>
+          <div>Sri Kaliswari College (2023–2026)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4+</div>
+          <div>Major Projects (ML + IoT)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">6+</div>
+          <div>Awards & Recognitions</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">NPTEL</div>
+          <div>Certified in Python, OOP & Soft Skills</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About + Education section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Education & Profile</h2>
+      <div class="grid-2col">
+        <div class="card-modern">
+          <i class="fas fa-graduation-cap" style="font-size: 2.2rem; color:var(--primary); margin-bottom: 16px;"></i>
+          <h3 style="font-size: 1.8rem; font-weight: 700;">Bachelor of Computer Application</h3>
+          <p style="color: var(--primary); font-weight: 600; margin: 8px 0;">Sri Kaliswari College | 2023 – 2026</p>
+          <p>CGPA: 7.5/10</p>
+          <p style="margin-top: 16px;">Core coursework: Data Structures, Python, DBMS, Web Dev, ML Fundamentals. Consistently engaged in research-driven projects and national-level competitions.</p>
+        </div>
+        <div class="card-modern">
+          <i class="fas fa-bullseye" style="font-size: 2.2rem; color:var(--accent); margin-bottom: 16px;"></i>
+          <h3 style="font-size: 1.8rem; font-weight: 700;">Objective</h3>
+          <p>Looking to secure a challenging role where I can apply foundational technical and communication skills. Eager to contribute to a successful team while gaining practical experience and growing within a dynamic organization.</p>
+          <p style="margin-top: 20px;"><i class="fas fa-check-circle" style="color:var(--accent);"></i> Strong cross-functional mindset & IoT innovation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills (removed Bootstrap5 and Overpass API) -->
+  <section id="skills" style="background: #FDFEFF;">
+    <div class="container">
+      <h2 class="section-title">Technical Expertise</h2>
+      <div class="grid-2col" style="gap: 40px;">
+        <div>
+          <div class="skill-category"><h4><i class="fas fa-code" style="color:var(--primary);"></i> Languages</h4><div class="skillset"><span class="skill-pill">Python</span><span class="skill-pill">C</span><span class="skill-pill">C++</span><span class="skill-pill">Java</span><span class="skill-pill">JavaScript</span><span class="skill-pill">HTML/CSS</span></div></div>
+          <div class="skill-category"><h4><i class="fas fa-layer-group" style="color:var(--primary);"></i> Frameworks & Libraries</h4><div class="skillset"><span class="skill-pill">Flask</span><span class="skill-pill">Leaflet.js</span><span class="skill-pill">Scikit-learn</span><span class="skill-pill">Pandas/NumPy</span></div></div>
+        </div>
+        <div>
+          <div class="skill-category"><h4><i class="fas fa-microchip" style="color:var(--primary);"></i> IoT & Embedded</h4><div class="skillset"><span class="skill-pill">NodeMCU ESP8266</span><span class="skill-pill">MAX30100 Sensor</span><span class="skill-pill">Arduino C++</span><span class="skill-pill">GPS Geofencing</span></div></div>
+          <div class="skill-category"><h4><i class="fas fa-database" style="color:var(--primary);"></i> Databases & Tools</h4><div class="skillset"><span class="skill-pill">SQLite</span><span class="skill-pill">Arduino IDE</span><span class="skill-pill">Android Studio</span><span class="skill-pill">Jupyter</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Flagship Projects</h2>
+      <div class="grid-2col">
+        <div class="project-card-pro">
+          <div class="project-content-pro">
+            <div class="project-title-pro">🩺 Diabetes Prediction</div>
+            <div class="tech-stack-pro">
+              <span class="tech-tag">Python</span><span class="tech-tag">Pandas/NumPy</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">Flask</span><span class="tech-tag">Jupyter</span>
+            </div>
+            <p>Designed and implemented a machine learning model for early diabetes risk assessment. Performed data preprocessing, feature scaling, train-test split, and evaluated predictive models achieving high accuracy.</p>
+            <ul class="feature-list-pro">
+              <li><i class="fas fa-chart-line"></i> Exploratory analysis & feature engineering</li>
+              <li><i class="fas fa-robot"></i> Model optimization with Logistic Regression/SVM</li>
+              <li><i class="fas fa-globe"></i> Flask web interface for real-time predictions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-card-pro">
+          <div class="project-content-pro">
+            <div class="project-title-pro">🚑 Smart Ambulance Response</div>
+            <div class="tech-stack-pro">
+              <span class="tech-tag">Flask</span><span class="tech-tag">C++ (Arduino)</span><span class="tech-tag">NodeMCU</span><span class="tech-tag">MAX30100</span>
+              <span class="tech-tag">Leaflet.js</span><span class="tech-tag">SQLite</span>
+            </div>
+            <p>IoT-driven emergency platform that streams patient vitals and automates optimal hospital routing with traffic preemption.</p>
+            <ul class="feature-list-pro">
+              <li><i class="fas fa-heartbeat"></i> Real-time vitals streaming (NodeMCU + MAX30100 → Flask backend)</li>
+              <li><i class="fas fa-map-marked-alt"></i> Automated routing dashboard using Leaflet.js & OpenStreetMap</li>
+              <li><i class="fas fa-traffic-light"></i> 500m GPS geofencing algorithm to override smart traffic signals instantly</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications + Awards & Achievements (UPDATED) -->
+  <section id="achievements" style="background: #F9FBFE;">
+    <div class="container">
+      <h2 class="section-title">Certifications & Honours</h2>
+      <div style="margin-bottom: 48px;">
+        <h3 style="font-size: 1.6rem; margin-bottom: 24px; font-weight: 700;"><i class="fas fa-certificate" style="color:var(--accent);"></i> Professional Certifications</h3>
+        <div class="grid-2col" style="gap: 20px;">
+          <div class="card-modern" style="padding: 24px;"><i class="fab fa-python" style="font-size: 2rem; color:#306998;"></i><p style="font-weight: 700; margin-top: 12px;">Python for Data Science</p><span>NPTEL · 2025</span></div>
+          <div class="card-modern" style="padding: 24px;"><i class="fas fa-database" style="font-size: 2rem; color:#00684A;"></i><p style="font-weight: 700; margin-top: 12px;">MongoDB Basics</p><span>ICT Academy Learnathon · 2025</span></div>
+          <div class="card-modern" style="padding: 24px;"><i class="fas fa-comments" style="font-size: 2rem; color:#4a6fa5;"></i><p style="font-weight: 700; margin-top: 12px;">Soft Skill Management</p><span>NPTEL · 2024</span></div>
+          <div class="card-modern" style="padding: 24px;"><i class="fas fa-code-branch" style="font-size: 2rem; color:#2c5a7a;"></i><p style="font-weight: 700; margin-top: 12px;">Fundamentals of Object Oriented Programming</p><span>NPTEL · 2026</span></div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size: 1.6rem; margin-bottom: 24px; font-weight: 700;"><i class="fas fa-trophy" style="color:var(--accent);"></i> Awards & Achievements</h3>
+        <div>
+          <div class="award-modern"><i class="fas fa-star" style="font-size: 1.5rem; color:var(--accent);"></i> <div><strong>Rural Star Award</strong> – Sri Kaliswari College (2026)</div></div>
+          <div class="award-modern"><i class="fas fa-gavel" style="font-size: 1.5rem; color:var(--accent);"></i> <div><strong>1st Prize – Intellectual Property Rights Competition</strong> organized by Sri Kaliswari College (2026)</div></div>
+          <div class="award-modern"><i class="fas fa-medal" style="font-size: 1.5rem; color:var(--accent);"></i> <div><strong>2nd Prize – Prompt Engineering</strong> (2026)</div></div>
+          <div class="award-modern"><i class="fas fa-bug" style="font-size: 1.5rem; color:var(--accent);"></i> <div><strong>2nd Prize – Debugging Competition</strong> (2025)</div></div>
+          <div class="award-modern"><i class="fas fa-file-alt" style="font-size: 1.5rem; color:var(--accent);"></i> <div><strong>2nd Prize – Paper Presentation</strong> (2025)</div></div>
+          <div class="award-modern"><i class="fas fa-film" style="font-size: 1.5rem; color:var(--accent);"></i> <div><strong>2nd Prize – Short Film Competition</strong> (2024)</div></div>
+          <div class="award-modern"><i class="fas fa-globe" style="font-size: 1.5rem; color:var(--accent);"></i> <div><strong>Participated – International Conference at Theni</strong> (2025)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Declaration -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Connect With Me</h2>
+      <div class="card-modern" style="text-align: center; padding: 48px 32px; background: linear-gradient(125deg, #FFFFFF, #FEFAF5);">
+        <div style="display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 32px;">
+          <a href="mailto:studentkarthi2606@gmail.com" class="contact-chip" style="background:#F0F6FA;"><i class="fas fa-envelope"></i> studentkarthi2606@gmail.com</a>
+          <a href="tel:+919345218984" class="contact-chip" style="background:#F0F6FA;"><i class="fas fa-phone-alt"></i> +91 93452 18984</a>
+          <a href="https://linkedin.com/in/karthikeyan" target="_blank" class="contact-chip" style="background:#F0F6FA;"><i class="fab fa-linkedin"></i> linkedin.com/in/karthikeyan</a>
+        </div>
+        <div style="max-width: 650px; margin: 0 auto; background: linear-gradient(95deg, #EFF6FA, #FFF7E8); border-radius: 60px; padding: 18px 24px; border-left: 4px solid var(--accent);">
+          <i class="fas fa-check-circle" style="color:var(--accent);"></i> <strong>Declaration:</strong> I hereby declare that the information provided above is true and accurate to the best of my knowledge and belief.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer-pro">
+  <div class="container">
+    <p style="font-size: 0.9rem;">© 2026 Karthikeyan — Machine Learning & IoT Portfolio. All information based on official resume.</p>
+    <p style="margin-top: 12px; font-size: 0.8rem;"><i class="fas fa-heart" style="color:#F59E0B;"></i> Built with modern web standards</p>
+  </div>
+</footer>
+
+</body>
+</html>
